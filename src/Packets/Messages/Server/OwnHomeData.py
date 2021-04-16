@@ -19,8 +19,8 @@ class OwnHomeData(Writer):
         self.writeVInt(200)
         self.writeVInt(99999)
         
-        self.writeScID(28, 0) # Player icon
-        self.writeScID(43, 0) # Player name color
+        self.writeScID(28, 66) # Player icon
+        self.writeScID(43, 3) # Player name color
         
         self.writeVInt(0) # Array
         self.writeVInt(0) # Array
@@ -34,9 +34,9 @@ class OwnHomeData(Writer):
         self.writeVInt(0)
         self.writeByte(0) # boolean
         self.writeVInt(1000)
-        self.writeVInt(10)
+        self.writeVInt(26000)
         self.writeVInt(20)
-        self.writeVInt(30)
+        self.writeVInt(5699999)
         
         # sub_5705E4 start
         self.writeVInt(0)
@@ -64,7 +64,7 @@ class OwnHomeData(Writer):
         self.writeVInt(99999)
         self.writeVInt(0)
         
-        self.writeScID(16, 47) # Menu Brawler
+        self.writeScID(16, 46) # Menu Brawler
         
         self.writeString("CA")
         self.writeString("Ultracore")
@@ -80,23 +80,12 @@ class OwnHomeData(Writer):
         
         self.writeVInt(1) # SeasonArray (v32)
         self.writeVInt(5)
-        self.writeVInt(0)
-        self.writeByte(0)
-        self.writeVInt(1)
-        self.writeByte(2)
-        self.writeInt(0)
-        self.writeInt(0)
-        self.writeInt(0)
-        self.writeInt(0)
+        self.writeVInt(10) # Pass Tokens
         self.writeByte(1)
-        self.writeInt(0)
-        self.writeInt(0)
-        self.writeInt(0)
-        self.writeInt(0)
+        self.writeVInt(5)
+        self.writeByte(0)
         
-        self.writeVInt(1) # v35 - Array
-        self.writeVInt(0)
-        self.writeVInt(0)
+        self.writeVInt(0) # v35 - Array
         
         self.writeByte(1) # boolean need set to true!!!
         self.writeVInt(0) # Quests Array
@@ -104,82 +93,64 @@ class OwnHomeData(Writer):
         self.writeByte(1) # boolean need set to true!!!
         self.writeVInt(0) # Pins Array
         
-        self.writeByte(0) # Array ?????
-        '''self.writeVInt(0) 
+        self.writeByte(1) # Array ?????
+        #self.writeVInt(1)
+        self.writeVInt(100)
+        self.writeVInt(10)
+        self.writeVInt(30)
+        self.writeVInt(3)
+        self.writeVInt(80)
+        self.writeVInt(10)
+        self.writeVInt(40)
+        self.writeVInt(1000)
+        self.writeVInt(500)
+        self.writeVInt(50)
+        self.writeVInt(999900)
         self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(1)
-        self.writeByte(2)
-        self.writeVInt(0)
-        self.writeByte(0)
-        self.writeVInt(0)
-        self.writeByte(0)'''
         
         self.writeInt(0)
         
         #sub_6BB088 end
         
         # sub_1B9CB8 start
-        self.writeVInt(1) #v4
-        
-        self.writeVInt(1) #Array vint
         self.writeVInt(0)
         
-        self.writeVInt(1) # Events
-        self.writeVInt(0)
-        self.writeVInt(1)
-        self.writeVInt(0)
-        self.writeVInt(75992)
-        self.writeVInt(10)
+        self.writeVInt(16) # v4
+        for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 20, 21, 22, 23, 24]:
+            self.writeVInt(x)
         
-        self.writeScID(15, 7)
+        maps = [377, 7, 26]
+        self.writeVInt(len(maps)) # Events
         
-        self.writeVInt(3)
-        self.writeVInt(0)
-        self.writeString()
-        
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0) #modifier array
-        
-        self.writeVInt(0)
-        self.writeVInt(0)
-        
-        self.writeByte(1) #ebanuty array
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeString()
-        self.writeVInt(0)
-        
-        self.writeVInt(0) #??? DataReference
-        
-        self.writeInt(0) #bytesLength
-        
-        self.writeVInt(0)
-        self.writeVInt(0)
-        
-        self.writeString()
-        self.writeVInt(0)
-        self.writeVInt(0) #result array
-        
-        self.writeVInt(0)
-        
-        self.writeByte(1)
-        self.writeVInt(0)
-        self.writeString()
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
+        for x in maps:
+            self.writeVInt(0)
+            if maps.index(x) == 0:
+                self.writeVInt(7)
+            else:
+                self.writeVInt(maps.index(x) + 1)
+            self.writeVInt(0)
+            self.writeVInt(75992)
+            self.writeVInt(10)
+            
+            self.writeScID(15, x)
+            
+            self.writeVInt(3)
+            self.writeVInt(0)
+            self.writeString()
+            
+            self.writeVInt(0)
+            self.writeVInt(0)
+            self.writeVInt(0)
+            self.writeVInt(0) #modifier array
+            
+            self.writeVInt(0)
+            self.writeVInt(0)
+            
+            self.writeByte(0) #ebanuty array
+            
+            self.writeVInt(0)
+            
+            self.writeByte(0)
         #Event end
         
         self.writeVInt(0) # empty events array
@@ -225,18 +196,25 @@ class OwnHomeData(Writer):
         
         self.writeVInt(8) # commodity count
         
+        self.writeVInt(400)
+        for x in range(400):
+            self.writeVInt(23)
+            self.writeVInt(x)
+            self.writeVInt(1)
         self.writeVInt(0)
+        self.writeVInt(0) # trophies for rank
+        self.writeVInt(0) # upgrade points
         self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
-        self.writeVInt(0)
+        self.writeVInt(47)
+        for x in range(47):
+            self.writeScID(16, x)
+            self.writeVInt(8) # power level
         self.writeVInt(0)
         self.writeVInt(0)
         #commoditys end
         
-        self.writeVInt(999999)
-        self.writeVInt(0)
+        self.writeVInt(6666)
+        self.writeVInt(0) #
         self.writeVInt(0)
         self.writeVInt(0)
         self.writeVInt(0)
