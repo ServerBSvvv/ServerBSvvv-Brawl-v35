@@ -10,3 +10,4 @@ You need to change host in libxeonscript.so
 ### FAQ
 Apk crashes, what to do?
 ##### Try to launch APK on emulators (nox, bluestack or VMos)
+this is server my project and update 15.08.2021
