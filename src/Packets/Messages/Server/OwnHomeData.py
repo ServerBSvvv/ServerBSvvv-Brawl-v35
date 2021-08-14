@@ -213,8 +213,8 @@ class OwnHomeData(Writer):
         self.writeVInt(0)
         #commoditys end
         
-        self.writeVInt(1000000000)
-        self.writeVInt(0) #
+        self.writeVInt(1000000000) # Gems
+        self.writeVInt(0) # Free Gems?
         self.writeVInt(0)
         self.writeVInt(0)
         self.writeVInt(0)
