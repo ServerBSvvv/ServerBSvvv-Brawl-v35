@@ -13,8 +13,8 @@ class OwnHomeData(Writer):
         # sub_6BB088 start
         self.writeVInt(2021091) #Year * 1000 + day_of_year
         self.writeVInt(72152)
-        self.writeVInt(99999)
-        self.writeVInt(99999)
+        self.writeVInt(5000)
+        self.writeVInt(5000)
         self.writeVInt(122)
         self.writeVInt(200)
         self.writeVInt(99999)
@@ -64,10 +64,10 @@ class OwnHomeData(Writer):
         self.writeVInt(99999)
         self.writeVInt(0)
         
-        self.writeScID(16, 46) # Menu Brawler
+        self.writeScID(16, 0) # Menu Brawler
         
-        self.writeString("CA")
-        self.writeString("Ultracore")
+        self.writeString("RU")
+        self.writeString("ServerBSvvv")
         
         self.writeVInt(1) # v26 - Array
         self.writeInt(0)
@@ -80,7 +80,7 @@ class OwnHomeData(Writer):
         
         self.writeVInt(1) # SeasonArray (v32)
         self.writeVInt(5)
-        self.writeVInt(10) # Pass Tokens
+        self.writeVInt(0) # Pass Tokens
         self.writeByte(1)
         self.writeVInt(5)
         self.writeByte(0)
@@ -190,7 +190,7 @@ class OwnHomeData(Writer):
         self.writeVInt(0)
         self.writeVInt(1)
         
-        self.writeString("Ultracore")
+        self.writeString("Guest")
         self.writeByte(1) #nameset
         self.writeInt(0)
         
@@ -208,12 +208,12 @@ class OwnHomeData(Writer):
         self.writeVInt(47)
         for x in range(47):
             self.writeScID(16, x)
-            self.writeVInt(8) # power level
+            self.writeVInt(665) # power level
         self.writeVInt(0)
         self.writeVInt(0)
         #commoditys end
         
-        self.writeVInt(6666)
+        self.writeVInt(1000000000)
         self.writeVInt(0) #
         self.writeVInt(0)
         self.writeVInt(0)
